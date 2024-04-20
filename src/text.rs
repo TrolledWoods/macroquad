@@ -82,10 +82,6 @@ impl Font {
 
         let (metrics, bitmap) = self.font.rasterize(character, size as f32);
 
-        if metrics.advance_height != 0.0 {
-            panic!("Vertical fonts are not supported");
-        }
-
         let (width, height) = (metrics.width as u16, metrics.height as u16);
 
         let sprite = self.atlas.lock().unwrap().new_unique_id();
